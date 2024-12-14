@@ -1,6 +1,6 @@
 var builder = WebApplication.CreateBuilder(args) // builder object, responsible for application configuration with command line argument features
 
-builder.Services.AddSingleton<DataService>(); // Singleton lifetime linking the Dependency Injection class, DataService to the application builder
+builder.Services.AddSingleton<ServiceData>(); // Singleton lifetime linking the Dependency Injection class, DataService to the application builder
 builder.Services.AddSingleton<SeleniumContainer>(); // Singleton lifetime linking the Automation class, SeleniumAutomation to the application builder
 
 var app = builder.Build(); // applcation object creation, ready for http requests and routing. Fully configured application. 
