@@ -5,7 +5,7 @@ public class POSTrequest : ControllerBase { // Instances ControllerBase for API 
 
     private readonly ServiceData _dataService; // Private dataService variable injected via dependency injection from DepInj.cs
 
-    public POSTrequest(DataService dataService) { // Constructor instancing the DataService class in regard to dependency injection
+    public POSTrequest(ServiceData dataService) { // Constructor instancing the DataService class in regard to dependency injection
         _dataService = dataService; // Converting private temp data into global usable data
     }
 
