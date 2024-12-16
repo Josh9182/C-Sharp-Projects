@@ -4,8 +4,8 @@ using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 using OpenQA.Selenium.Interactions;
 
-public class SeleniumContainer {
-    static void SeleniumAutomation() {
+public class DriverContainer {
+    static void SeleniumDriver() {
       
     }
 }
