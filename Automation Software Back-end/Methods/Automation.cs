@@ -15,10 +15,10 @@ public class DriverContainer {
         alert.Dismiss(); // Dismiss all notifications
 
         driver.FindElement(By.Name("example.input.field1111.username")).Click();
-        driver.FindElement(By.Name("example.input.field1111.username")).SendKeys("joshlewis"); // Click and fill in the username input box
+        driver.FindElement(By.Name("example.input.field1111.username")).SendKeys("username"); // Click and fill in the username input box
 
         driver.FindElement(By.Name("example.input.field1111.password")).Click();
-        driver.FindElement(By.Name("example.input.field1111.password")).SendKeys("asWm1!z!!@"); // Click and fill in the password input box
+        driver.FindElement(By.Name("example.input.field1111.password")).SendKeys("password"); // Click and fill in the password input box
         
 
         driver.Quit();
