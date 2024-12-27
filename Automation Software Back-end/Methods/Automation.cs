@@ -3,8 +3,30 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
 
-public class DriverContainer { 
-    static void Main(string[] args) { // Endpoint for .NET application
+public interface DepInjListLink { // Interface linking the DepInj.cs file into Automation.cs, storing the JS data as a list of strings. 
+    List<string> ReturnData();
+}
+
+public class CollectionInterface : ServiceData, DepInjListLink { // Instancing the ServiceData class as well as the interface above, inheriting he JS data.
+    public new List<string> ReturnData() {
+        if (base.ReturnData() is List<string> stringCollection) { // Ensures object data from DepInj.cs is a list of strings, for error proofing. If so then return itself known as stringCollection.
+            return stringCollection;
+        }
+        else { // Throw data type failure error. 
+        throw new InvalidCastException("Stored data is not an List<string>");
+        }
+    }
+}
+
+public class DriverContainer
+{
+    private List<string> data; // empty list, will be used to store returned "stringCollection"
+    
+    public DriverContainer(DepInjListLink depInj) { // Class requiring the instance of DepInjListLink, creating the object parameter depInj
+        this.data = depInj.ReturnData(); // Targets the private list above, data. Stores the ReturnData() returned striingCollection in the data List.
+    }
+
+    public static void Main(string[] args) { // Endpoint for .NET application
         ChromeOptions options = new ChromeOptions(); // Instance ChromeOptions class, allowing for Chrome settings to be altered
         string driverpath = @"path"; // DriverPath to ensure chrome driver is correctly called in
         options.AddArgument("--disable-notifications"); // Disable all notifications that could possibly affect the automation
@@ -35,7 +57,7 @@ public class DriverContainer {
 
         try {
 
-            IWebElement passInput = wait.Until(driver => driver.FindElement(By.Id("password")));
+            IWebElement passInput = wait.Until(driver => driver.FindElement(By.Id("password_id")));
             passInput.SendKeys("password");
             passInput.SendKeys(Keys.Enter);
         }
@@ -54,6 +76,15 @@ public class DriverContainer {
 
             Console.WriteLine("Unable to locate User Ticket. Please retry.")
         }
+
+        try {
+
+            foreach (var d in data) { // Utilizing "data", each element will be iterated.  
+                
+            }
+        
+        }
+        catch () {}
 
         driver.Quit();
     }
