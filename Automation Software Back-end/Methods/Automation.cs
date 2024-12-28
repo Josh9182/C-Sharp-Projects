@@ -7,7 +7,7 @@ public interface DepInjListLink { // Interface linking the DepInj.cs file into A
     List<string> ReturnData();
 }
 
-public class CollectionInterface : ServiceData, DepInjListLink { // Instancing the ServiceData class as well as the interface above, inheriting he JS data.
+public class InterfaceCollection : ServiceData, DepInjListLink { // Instancing the ServiceData class as well as the interface above, inheriting the JS data.
     public new List<string> ReturnData() {
         if (base.ReturnData() is List<string> stringCollection) { // Ensures object data from DepInj.cs is a list of strings, for error proofing. If so then return itself known as stringCollection.
             return stringCollection;
