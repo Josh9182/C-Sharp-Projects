@@ -39,6 +39,7 @@ public class DriverContainer
        InterfaceCollection and its corresponding data (stringCollection).
     */
         this.data = depInj.ReturnData(); // Targets the private list above, data. Stores the ReturnData() returned stringCollection in the data List.
+        // Without "this." stringCollection would be stored in a local variable.
     }
 
     public static void Main(string[] args) { // Endpoint for .NET application
