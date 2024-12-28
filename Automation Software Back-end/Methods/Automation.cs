@@ -14,7 +14,8 @@ public class InterfaceCollection : ServiceData, DepInjListLink { // Instancing t
       class’s return data (object) can be a List of strings.
       Since "is" type casts and returns a boolean value,
       it analyzes to see if "object" can be turned into a List of strings, 
-      which yes it can because "object" classes are malleable. */
+      which yes it can because "object" classes are malleable. 
+   */
 
         if (base.ReturnData() is List<string> stringCollection) { 
             return stringCollection; // New overridden list returned as stringCollection.
@@ -29,8 +30,15 @@ public class DriverContainer
 {
     private List<string> data; // empty list, will be used to store returned "stringCollection"
     
-    public DriverContainer(DepInjListLink depInj) { // Class requiring the instance of DepInjListLink, creating the object parameter depInj
-        this.data = depInj.ReturnData(); // Targets the private list above, data. Stores the ReturnData() returned striingCollection in the data List.
+    public DriverContainer(DepInjListLink depInj) { // Class requiring the instance of DepInjListLink, creating the object parameter depInj.
+
+    /* Interfaces can be instanced but an instance CANNOT be created.
+       When requiring an instance to be created it will target the class 
+       that has used the interface via a Dependency Injection (DI).
+       While DepInjListLink is being called, this object is able to access
+       InterfaceCollection and its corresponding data (stringCollection).
+    */
+        this.data = depInj.ReturnData(); // Targets the private list above, data. Stores the ReturnData() returned stringCollection in the data List.
     }
 
     public static void Main(string[] args) { // Endpoint for .NET application
