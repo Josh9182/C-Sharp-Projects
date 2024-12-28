@@ -4,7 +4,7 @@ using OpenQA.Selenium.Support.UI;
 using System;
 
 public interface DepInjListLink { // Interface linking the DepInj.cs file into Automation.cs, stating that all data from ReturnData will be need to be in the format of a List as a string elements, basically a rule book.
-    List<string> ReturnData();
+    List<string> ReturnData(); // Any object that instances this interface is obligated to return a List of strings as well as have the right to the ReturnData() function.
 }
 
 public class InterfaceCollection : ServiceData, DepInjListLink { // Instancing the ServiceData class as well as the interface above, inheriting the JS data.
