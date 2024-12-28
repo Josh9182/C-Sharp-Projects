@@ -9,8 +9,15 @@ public interface DepInjListLink { // Interface linking the DepInj.cs file into A
 
 public class InterfaceCollection : ServiceData, DepInjListLink { // Instancing the ServiceData class as well as the interface above, inheriting the JS data.
     public new List<string> ReturnData() { // New List, overriding the ServiceData object DT to ensure type safety, contracted by DepInjListLink. This new list will house all JS data in the correct format.
+
+   /* Statement checking if the root of the ServiceData 
+      class’s return data (object) can be a List of strings.
+      Since "is" type casts and returns a boolean value,
+      it analyzes to see if "object" can be turned into a List of strings, 
+      which yes it can because "object" classes are malleable. */
+
         if (base.ReturnData() is List<string> stringCollection) { 
-            return stringCollection;
+            return stringCollection; // New overridden list returned as stringCollection.
         }
         else { // Throw data type failure error. 
         throw new InvalidCastException("Stored data is not an List<string>");
