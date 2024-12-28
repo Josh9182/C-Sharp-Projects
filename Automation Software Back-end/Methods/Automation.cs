@@ -3,7 +3,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
 
-public interface DepInjListLink { // Interface linking the DepInj.cs file into Automation.cs, storing the JS data as a list of strings. 
+public interface DepInjListLink { // Interface linking the DepInj.cs file into Automation.cs, stating that all data from ReturnData will be imported into a List as a string element.
     List<string> ReturnData();
 }
 
