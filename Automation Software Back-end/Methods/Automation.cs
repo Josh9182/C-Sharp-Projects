@@ -44,7 +44,7 @@ public class DriverContainer
 
     public static void Main(string[] args) { // Endpoint for .NET application
         ChromeOptions options = new ChromeOptions(); // Instance ChromeOptions class, allowing for Chrome settings to be altered
-        string driverpath = @"path"; // DriverPath to ensure chrome driver is correctly called in
+        string driverpath = @"pathway/to/your/file"; // DriverPath to ensure chrome driver is correctly called in
         options.AddArgument("--disable-notifications"); // Disable all notifications that could possibly affect the automation
         IWebDriver driver = new ChromeDriver(driverpath, options); // Instance IWebDriver interface and initiate the ChromeDriver class, opening a Chrome browser
 
