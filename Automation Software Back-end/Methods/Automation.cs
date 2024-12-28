@@ -3,13 +3,13 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
 using System;
 
-public interface DepInjListLink { // Interface linking the DepInj.cs file into Automation.cs, stating that all data from ReturnData will be imported into a List as a string element.
+public interface DepInjListLink { // Interface linking the DepInj.cs file into Automation.cs, stating that all data from ReturnData will be need to be in the format of a List as a string elements, basically a rule book.
     List<string> ReturnData();
 }
 
 public class InterfaceCollection : ServiceData, DepInjListLink { // Instancing the ServiceData class as well as the interface above, inheriting the JS data.
-    public new List<string> ReturnData() {
-        if (base.ReturnData() is List<string> stringCollection) { // Ensures object data from DepInj.cs is a list of strings, for error proofing. If so then return itself known as stringCollection.
+    public new List<string> ReturnData() { // New List, overriding the ServiceData object DT to ensure type safety, contracted by DepInjListLink. This new list will house all JS data in the correct format.
+        if (base.ReturnData() is List<string> stringCollection) { 
             return stringCollection;
         }
         else { // Throw data type failure error. 
